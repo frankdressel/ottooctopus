@@ -19,6 +19,11 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+  app.import('vendor/blockly/blockly_compressed.js');
+  app.import('vendor/blockly/blocks_compressed.js');
+  app.import('vendor/blockly/de.js');
+  app.import('vendor/blockly/javascript_compressed.js');
+  app.import('vendor/blockly/messages.js');
 
   return app.toTree();
 };
