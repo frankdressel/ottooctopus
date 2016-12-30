@@ -2,18 +2,27 @@ Blockly.JavaScript['object'] = function(block) {
     var text_name = block.getFieldValue('NAME');
     var value_attributes = Blockly.JavaScript.valueToCode(block, 'attributes', Blockly.JavaScript.ORDER_ATOMIC);
     var value_states = Blockly.JavaScript.valueToCode(block, 'states', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
     // Using JSON.parse as safer variant of eval.
-    let attributesStringRepresentation=value_attributes.replace(/[\[\]]/g, '').split(',').reduce((previous, current) => previous+',\n'+current+' = '+current);
-    let statesStringRepresentation=value_states.replace(/[\[\]]/g, '').split('), (').map(e => e.replace(/^ *\(/, '').replace(/\)$/, '')).reduce((previous, current) => previous+',\n'+current);
+    let attributesAssignmentString=value_attributes.replace(/[\[\]]/g, '').split(',').map(e => 'this.'+e+'='+e+';').reduce((previous, current) => previous+'\n'+current);
+    let attributesString=value_attributes.replace(/[\[\]]/g, '').split(',').map(e => '\''+e+'\'').reduce((previous, current) => previous+',\n'+current);
+    let statesString=value_states.replace(/[\[\]]/g, '').split('), (').map(e => e.replace(/^ *\(/, '').replace(/\)$/, '')).reduce((previous, current) => previous+',\n'+current);
     let stringRepresentation=`class StatemachineObject {
-        state: 'initial',
-        ${attributesStringRepresentation},
-        transit() {
-            return state;
-        },
-        ${statesStringRepresentation}
-    };`;
+        constructor() {
+            this.state = 'initial';
+            this.attributes=['state', ${attributesString}];
+            ${attributesAssignmentString}
+            this.states = {${statesString}}
+        }
+        transit(){
+            for(state in this.states){
+                if(this.states[state]()){
+                    this.state=state;
+                    break;
+                }
+            }
+        }
+    }
+    `;
     var code = stringRepresentation+'\n';
     return code;
 };
@@ -22,11 +31,11 @@ Blockly.JavaScript['state'] = function(block) {
   var text_statename  = block.getFieldValue('statename');
   var value_condition = Blockly.JavaScript.valueToCode(block, 'condition', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-    let stringRepresentation=`is${text_statename}(){
+    let name=(text_statename.charAt(0).toUpperCase() + text_statename.slice(1)).replace(/ /g, '_');
+    let stringRepresentation='"'+name+'"'+`:function(){
        return ${value_condition}; 
     }`;
   var code = stringRepresentation;
-  // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 

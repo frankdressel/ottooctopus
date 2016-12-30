@@ -1,0 +1,9 @@
+{{historical}}
+{{#each historical as |item index|}}
+    {{index}}
+    {{#each-in item as |key value|}}
+        {{key}} {{value}}
+    {{/each-in}}
+    <br>
+{{/each}}
+<button {{action "transit"}}>Next state</button>

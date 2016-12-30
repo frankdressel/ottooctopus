@@ -357,8 +357,28 @@ var toolboxXML='<xml>'+
       '<category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category>'+
       '<sep></sep>'+
       '<category name="State machine">'+
-        '<block type="object">'+
+      '<block type="object">'+
           '<field name="NAME">object</field>'+
+          '<value name="attributes">'+
+            '<block type="lists_create_with">'+
+              '<mutation items="1"></mutation>'+
+              '<value name="ADD0">'+
+                '<block type="variables_get">'+
+                  '<field name="VAR">a</field>'+
+                '</block>'+
+              '</value>'+
+            '</block>'+
+          '</value>'+
+          '<value name="states">'+
+            '<block type="lists_create_with">'+
+              '<mutation items="1"></mutation>'+
+              '<value name="ADD0">'+
+                '<block type="state">'+
+                  '<field name="statename">state name</field>'+
+                '</block>'+
+              '</value>'+
+            '</block>'+
+          '</value>'+
         '</block>'+
         '<block type="state">'+
           '<field name="NAME">state name</field>'+
