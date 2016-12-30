@@ -2,10 +2,10 @@ Blockly.Blocks['object'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldTextInput("object"), "NAME");
-    this.appendValueInput("NAME")
+    this.appendValueInput("attributes")
         .setCheck("Array")
         .appendField("attributes");
-    this.appendValueInput("NAME")
+    this.appendValueInput("states")
         .setCheck("Array")
         .appendField("states");
     this.setColour(210);
@@ -16,17 +16,17 @@ Blockly.Blocks['object'] = {
 
 Blockly.Blocks['state'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("state name"), "NAME")
-        .appendField(":");
-    this.appendValueInput("NAME")
-        .setCheck("Boolean");
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setColour(330);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldTextInput("state name"), "statename")
+          .appendField(":");
+      this.appendValueInput("condition")
+          .setCheck("Boolean");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setColour(330);
+      this.setTooltip('');
+      this.setHelpUrl('http://www.example.com/');
+    }
 };
 
 Blockly.Blocks['current'] = {
@@ -60,18 +60,6 @@ Blockly.Blocks['previous'] = {
         .appendField("previous");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
-
-Blockly.Blocks['sum'] = {
-  init: function() {
-    this.appendValueInput("NAME")
-        .setCheck("Array")
-        .appendField("sum");
-    this.setOutput(true, "Number");
-    this.setColour(20);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }

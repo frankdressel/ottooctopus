@@ -1,2 +1,5 @@
-{{#blockly-container}}
+# Passing the model from the index route template down to the component.
+{{#blockly-container model=model}}
 {{/blockly-container}}
+<button {{action "generate"}}>Generate</button>
+{{model}}
