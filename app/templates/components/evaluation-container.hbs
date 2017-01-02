@@ -1,9 +1,11 @@
-{{historical}}
 {{#each historical as |item index|}}
     {{index}}
     {{#each-in item as |key value|}}
-        {{key}} {{value}}
+        {{key}}: {{value}}
     {{/each-in}}
     <br>
 {{/each}}
+{{#each-in statemachine as |key value|}}
+    {{key}}: {{input value=(mut (get statemachine key))}}
+{{/each-in}}
 <button {{action "transit"}}>Next state</button>

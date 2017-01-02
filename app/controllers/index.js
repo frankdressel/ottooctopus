@@ -17,6 +17,7 @@ export default Ember.Controller.extend({
                 Ember.set(this.model, 'historical', historical);
             }
             let statemachine=Ember.get(this.model, 'statemachine');
+            statemachine.transit();
             let newLine=statemachine.attributes.reduce((previous, propertyName) => {previous[propertyName]=statemachine[propertyName]; return previous}, {});
             historical.pushObject(newLine);
         }

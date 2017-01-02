@@ -5,5 +5,8 @@ export default Ember.Component.extend({
         transit(){
             this.get('transit')();
         }
+        change(key, value){
+            this.set('statemachine', key, value); 
+        }
     }
 });
