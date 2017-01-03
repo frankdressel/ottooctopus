@@ -4,14 +4,17 @@ export default Ember.Controller.extend({
     actions: {
         generate() {
             var code = '(function(){\n'+
+            '    var state=\'initial\';\n'+
             '    '+Blockly.JavaScript.workspaceToCode(this.model.workspace)+'\n'+
             '    var statemachine=new StatemachineObject();\n'+
             '    return {\n'+
             '        transit(){\n'+
+            '            if(typeof pretransit !== \'undefined\') {pretransit();}\n'+
             '            statemachine.transit();\n'+    
+            '            if(typeof posttransit !== \'undefined\') {posttransit();}\n'+
             '        },\n'+
-            '        set(key, value){eval(key+\'=\'+value);statemachine[key]=value;},\n'+
-            '        get(key){return statemachine[key];},\n'+
+            '        set(key, value){eval(key+\'=\'+value);},\n'+
+            '        get(key){return eval(\'"use strict";\'+key);},\n'+
             '        getAttributes(){return statemachine.attributes;}\n'+
             '    }\n'+
             '})()';
@@ -19,6 +22,7 @@ export default Ember.Controller.extend({
             var statemachine=eval(code);
             console.log(statemachine.getAttributes());
             Ember.set(this.model, 'statemachine', statemachine);
+            console.log(statemachine.getAttributes());
             Ember.set(this.model, 'attributes', statemachine.getAttributes());
         },
         transit() {

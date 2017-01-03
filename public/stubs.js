@@ -8,17 +8,13 @@ Blockly.JavaScript['object'] = function(block) {
     let statesString=value_states.replace(/[\[\]]/g, '').split('), (').map(e => e.replace(/^ *\(/, '').replace(/\)$/, '')).reduce((previous, current) => previous+',\n'+current);
     let stringRepresentation=`class StatemachineObject {
         constructor() {
-            this.state = 'initial';
             this.attributes=['state', ${attributesString}];
-            ${attributesAssignmentString}
             this.states = {${statesString}}
         }
         transit(){
-            for(var state in this.states){
-                    console.log(state+' '+this.state);
-                if(this.states[state]()){
-                    console.log(state);
-                    Ember.set(this, 'state', state);
+            for(var st in this.states){
+                if(this.states[st]()){
+                    state=st;
                     break;
                 }
             }
