@@ -5,7 +5,7 @@
     {{/each-in}}
     <br>
 {{/each}}
-{{#each-in statemachineValues as |key value|}}
-    {{key}}: {{input placeholder=value value=enteredValue enter=(action "change" key enteredValue)}}
+{{#each-in statemachineValues as |key val|}}
+    {{key}}: {{input placeholder=val enter=(action "change" key)}}
 {{/each-in}}
 <button {{action "transit"}}>Next state</button>

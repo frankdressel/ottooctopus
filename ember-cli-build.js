@@ -24,6 +24,7 @@ module.exports = function(defaults) {
   app.import('vendor/blockly/de.js');
   app.import('vendor/blockly/javascript_compressed.js');
   app.import('vendor/blockly/messages.js');
+  app.import('vendor/blockly/storage.js');
 
   return app.toTree();
 };

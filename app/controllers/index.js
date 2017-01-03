@@ -24,6 +24,8 @@ export default Ember.Controller.extend({
             Ember.set(this.model, 'statemachine', statemachine);
             console.log(statemachine.getAttributes());
             Ember.set(this.model, 'attributes', statemachine.getAttributes());
+            let historical=Ember.A([]);
+            Ember.set(this.model, 'historical', historical);
         },
         transit() {
             let historical=Ember.get(this.model, 'historical');
