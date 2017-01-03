@@ -16,9 +16,8 @@ Blockly.JavaScript['object'] = function(block) {
         transit(){
             for(var state in this.states){
                     console.log(state+' '+this.state);
-                    console.log(a);
-                    console.log(Ember.get(this, 'a'));
                 if(this.states[state]()){
+                    console.log(state);
                     Ember.set(this, 'state', state);
                     break;
                 }

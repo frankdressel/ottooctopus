@@ -2,5 +2,5 @@
 {{#blockly-container model=model}}
 {{/blockly-container}}
 <button {{action "generate"}}>Generate</button>
-{{#evaluation-container historical=model.historical statemachine=model.statemachine attributes=statemachine.attributes transit=(action "transit")}}
+{{#evaluation-container historical=model.historical statemachine=model.statemachine statemachineValues=model.statemachineValues transit=(action "transit")}}
 {{/evaluation-container}}
