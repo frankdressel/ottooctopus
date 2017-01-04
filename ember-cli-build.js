@@ -25,6 +25,9 @@ module.exports = function(defaults) {
   app.import('vendor/blockly/javascript_compressed.js');
   app.import('vendor/blockly/messages.js');
   app.import('vendor/blockly/storage.js');
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
   return app.toTree();
 };

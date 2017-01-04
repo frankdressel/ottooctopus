@@ -1,6 +1,12 @@
-<!-- Passing the model from the index route template down to the component. -->
-{{#blockly-container model=model}}
-{{/blockly-container}}
-<button {{action "generate"}}>Generate</button>
-{{#evaluation-container historical=model.historical statemachine=model.statemachine statemachineValues=model.statemachineValues transit=(action "transit")}}
-{{/evaluation-container}}
+<div class="row fullrow">
+    <div class="col-md-7 fullrow" id="blocklyArea">
+        <!-- Passing the model from the index route template down to the component. -->
+        {{#blockly-container model=model}}
+        {{/blockly-container}}
+    </div>
+    <div class="col-md-5">
+        <button {{action "generate"}}>Generate</button>
+        {{#evaluation-container historical=model.historical statemachine=model.statemachine statemachineValues=model.statemachineValues transit=(action "transit")}}
+        {{/evaluation-container}}
+    </div>
+</div>
