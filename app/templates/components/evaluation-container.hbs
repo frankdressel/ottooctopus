@@ -1,11 +1,28 @@
-{{#each historical as |item index|}}
-    {{index}}
-    {{#each-in item as |key value|}}
-        {{key}}: {{value}}
-    {{/each-in}}
-    <br>
-{{/each}}
-{{#each-in statemachineValues as |key val|}}
-    {{key}}: {{input placeholder=val enter=(action "change" key)}}
-{{/each-in}}
-<button {{action "transit"}}>Next state</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+        {{#each attributes as |attribute|}}
+            <th>{{attribute}}</th>
+        {{/each}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each historical as |item index|}}
+        <tr>
+            {{#each-in item as |key value|}}
+            <td>
+                {{value}}
+            </td>
+            {{/each-in}}
+            <br>
+        </tr>
+        {{/each}}
+        <tr>
+            {{#each-in statemachineValues as |key val|}}
+            <td>
+                {{input class="form-control" value=val placeholder=val enter=(action "change" key)}}
+            </td>
+            {{/each-in}}
+        </tr>
+    </tbody>
+</table>
