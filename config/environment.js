@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'statemachineapp',
+    modulePrefix: 'ottooctopus',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
