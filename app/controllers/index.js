@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     actions: {
+        saveRecord(){
+            let record=this.get('store').createRecord('workspace', {xml: Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(this.model.workspace))});
+            record.save();
+        },
         generate() {
             var code = '(function(){\n'+
             '    var state=\'initial\';\n'+

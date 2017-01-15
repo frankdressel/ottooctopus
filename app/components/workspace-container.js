@@ -1,6 +1,9 @@
 import Ember from 'ember';
+import { storageFor } from 'ember-local-storage';
 
 export default Ember.Component.extend({
+    workspaces: storageFor('workspaces'),
+    store: Ember.inject.service(),
     didInsertElement() {
         this._super(...arguments);
 
@@ -38,7 +41,20 @@ export default Ember.Component.extend({
         onresize();
         Blockly.svgResize(this.model.workspace);
 
-        window.setTimeout(BlocklyStorage.restoreBlocks, 0);
-        BlocklyStorage.backupOnUnload();
+//        window.setTimeout(BlocklyStorage.restoreBlocks, 0);
+//        BlocklyStorage.backupOnUnload();
+    },
+    actions: {
+        saveRecord(){
+            console.log(Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(this.model.workspace)));
+        },
+        clear(){
+            this.get('workspaces').clear();
+        },
+        load(){
+            console.log(JSON.parse(window.localStorage['storage:workspaces'])[0]);
+            var xml = Blockly.Xml.textToDom(JSON.parse(window.localStorage['storage:workspaces'])[0].xml);
+            Blockly.Xml.domToWorkspace(xml, this.model.workspace);
+        }
     }
 });
