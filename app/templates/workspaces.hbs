@@ -1,7 +1,7 @@
 {{input class="form-control" value=name placeholder="Enter a name" enter=(action "createNew" name)}}
 {{#each model as |workspace|}}
     {{#link-to 'workspace' workspace tagName='li'}}
-        {{workspace.id}}
+        {{workspace.name}}
     {{/link-to}}
     {{model.name}}
 {{/each}}

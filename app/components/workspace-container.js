@@ -3,13 +3,12 @@ import { storageFor } from 'ember-local-storage';
 
 export default Ember.Component.extend({
     workspaces: storageFor('workspaces'),
-    store: Ember.inject.service(),
     didInsertElement() {
         this._super(...arguments);
 
         var blocklyArea = document.getElementById('blocklyArea');
         var blocklyDiv = document.getElementById('blocklyDiv');
-        this.model.workspace = Blockly.inject(blocklyDiv, {
+        this.model.workspaceInstance = Blockly.inject(blocklyDiv, {
             toolbox: toolboxXML,
             grid: {
                 spacing: 20,
@@ -37,24 +36,21 @@ export default Ember.Component.extend({
             blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
             blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
         };
+        var xml = Blockly.Xml.textToDom(this.model.get('workspace'));
+        Blockly.Xml.domToWorkspace(xml, this.model.workspaceInstance);
         window.addEventListener('resize', onresize, false);
         onresize();
-        Blockly.svgResize(this.model.workspace);
-
-//        window.setTimeout(BlocklyStorage.restoreBlocks, 0);
-//        BlocklyStorage.backupOnUnload();
+        Blockly.svgResize(this.model.workspaceInstance);
     },
     actions: {
         saveRecord(){
-            console.log(Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(this.model.workspace)));
+            this.model.set('workspace', Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(this.model.workspaceInstance)));
+            this.model.save();
         },
-        clear(){
-            this.get('workspaces').clear();
-        },
-        load(){
-            console.log(JSON.parse(window.localStorage['storage:workspaces'])[0]);
-            var xml = Blockly.Xml.textToDom(JSON.parse(window.localStorage['storage:workspaces'])[0].xml);
-            Blockly.Xml.domToWorkspace(xml, this.model.workspace);
+        delete(){
+            this.model.deleteRecord();
+            this.model.save();
+
         }
     }
 });
