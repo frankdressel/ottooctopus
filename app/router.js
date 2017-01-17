@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('about');
   this.route('workspaces');
   this.route('workspace', { path: '/:workspace_id' });
 });
