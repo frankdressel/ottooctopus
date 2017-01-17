@@ -1,24 +1,23 @@
-body > .ember-view {
-  display:        flex;
-  min-height:     100vh;
-  flex-direction: column;
+html, body {
+    height: 100%;
 }
-
-.fullheight {
-  flex: 1 0 auto;
-}
-
-.fullrow {
-  min-height: 100%;
+body {
+    height: 100%;
 }
 
 .container {
-  min-width: 100vw;
+    min-width: 100vw;
+    height: 100%;
 }
 
-html,body,.col-md-8,.row {
-  height:100%;
+.fullHeight {
+    height: 100%;
 }
-.row .ember-view {
-  height:100%;
+
+#blocklyDiv {
+    height: 600px;
+}
+
+.row.is-flex {
+    height: 100%;
 }
