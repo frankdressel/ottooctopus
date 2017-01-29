@@ -1,13 +1,1 @@
-<div class="row fullrow">
-    <div class="col-md-7 fullrow" id="blocklyArea">
-        <!-- Passing the model from the index route template down to the component. -->
-        {{#workspace-container model=model save=save}}
-        {{/workspace-container}}
-    </div>
-    <div class="col-md-5">
-        <button class="btn btn-primary" {{action "generate"}}>Generate</button>
-        <button class="btn btn-primary" {{action "transit"}}>Next state</button>
-        {{#evaluation-container historical=model.historical attributes=model.attributes statemachine=model.statemachine statemachineValues=model.statemachineValues}}
-        {{/evaluation-container}}
-    </div>
-</div>
+{{yield}}

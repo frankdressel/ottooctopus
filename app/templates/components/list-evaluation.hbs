@@ -1,0 +1,31 @@
+<button class="btn btn-primary" {{action "evaluate"}}>Evaluate</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 5%"></th>
+            <th style="width: 5%"></th>
+            <th style="width: 5%"></th>
+            <th style="width: 5%"></th>
+        {{#each attributes as |attribute|}}
+            <th>{{attribute}}</th>
+        {{/each}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each listValues as |item index|}}
+        <tr>
+            <td onclick={{action 'plus' index}}>+</td>
+            <td onclick={{action 'minus' index}}>-</td>
+            <td onclick={{action 'up' index}}>up</td>
+            <td onclick={{action 'down' index}}>down</td>
+            {{#each-in item as |key val|}}
+            <td>
+                {{input type="text" class="form-control" placeholder=key value=(mut (get item key))}}
+            </td>
+            {{/each-in}}
+            <br>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+Result: {{output}}

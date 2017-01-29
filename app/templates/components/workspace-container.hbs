@@ -1,3 +1,27 @@
-<button class="btn btn-primary" {{action "saveRecord"}}>Save</button>
-<button class="btn btn-primary" {{action "delete"}}>Delete</button>
-<div id="blocklyDiv"></div>
+<div class="row">
+    <button class="btn btn-primary" {{action "saveRecord"}}>Save</button>
+    <button class="btn btn-primary" {{action "delete"}}>Delete</button>
+    <button class="btn btn-primary" {{action "generate"}}>Generate</button>
+    <button class="btn btn-primary text-right" {{action "switchUI"}}>{{ui}}</button>
+</div>
+<div class="row is-flex">
+    {{#unless showEvaluation}}
+        <div class="{{if showDefinition 'col-md-12 fullheight' 'col-md-7 fullHeight'}}">
+            <!-- Passing the model from the index route template down to the component. -->
+            <!-- Passig the ui variable to trigger blockly-resize when the ui.mode changes. -->
+            {{#blockly-container model=model ui=ui}}
+            {{/blockly-container}}
+        </div>
+    {{/unless}}
+    {{#unless showDefinition}}
+        <div class="{{if showEvaluation 'col-md-12 fullheight' 'col-md-5 fullHeight'}}">
+            {{#if model.myMachine.isListMode}}
+                {{#list-evaluation listValues=model.myMachine.listValues attributes=model.myMachine.attributes machine=model.myMachine}}
+                {{/list-evaluation}}
+            {{else}}
+                {{#statemachine-evaluation listValues=model.myMachine.listValues attributes=model.myMachine.attributes machine=model.myMachine.machine statemachineValues=model.myMachine.statemachineValues}}
+                {{/statemachine-evaluation}}
+            {{/if}}
+        </div>
+    {{/unless}}
+</div>

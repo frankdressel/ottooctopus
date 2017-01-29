@@ -25,7 +25,7 @@ export default Ember.Controller.extend({
             console.log(code);
             var statemachine=eval(code);
             console.log(statemachine.getAttributes());
-            Ember.set(this.model, 'statemachine', statemachine);
+            Ember.set(this.model, 'machine', statemachine);
             console.log(statemachine.getAttributes());
             Ember.set(this.model, 'attributes', statemachine.getAttributes());
             let historical=Ember.A([]);
@@ -37,7 +37,7 @@ export default Ember.Controller.extend({
                 historical=Ember.A([]);
                 Ember.set(this.model, 'historical', historical);
             }
-            let statemachine=Ember.get(this.model, 'statemachine');
+            let statemachine=Ember.get(this.model, 'machine');
             statemachine.transit();
             let newLine=statemachine.getAttributes().reduce((previous, propertyName) => {previous[propertyName]=statemachine.get(propertyName); return previous}, {});
             Ember.set(this.model, 'statemachineValues', newLine);

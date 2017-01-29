@@ -406,8 +406,10 @@ var toolboxXML='<xml>'+
         '<block type="state">'+
           '<field name="NAME">state name</field>'+
         '</block>'+
-        '<block type="current"></block>'+
-        '<block type="previous"></block>'+
-        '<block type="get"></block>'+
+      '</category>'+
+      '<category name="List machine">'+
+        '<block type="sumover"></block>'+
+        '<block type="filteredindex"></block>'+
+        '<block type="filteredindex_stack"></block>'+
       '</category>'+
     '</xml>'
