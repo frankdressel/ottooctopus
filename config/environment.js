@@ -1,23 +1,31 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var ENV = {
-    modulePrefix: 'ottooctopus',
-    environment: environment,
-    rootURL: '/',
-    locationType: 'auto',
-    EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
-    },
+    var ENV = {
+        modulePrefix: 'ottooctopus',
+        environment: environment,
+        rootURL: '/',
+        locationType: 'auto',
+        EmberENV: {
+            FEATURES: {
+                // Here you can enable experimental features on an ember canary build
+                // e.g. 'with-controller': true
+            }
+        },
 
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    }
-  };
+        APP: {
+            // Here you can pass flags/options to your application instance
+            // when it is created
+        }
+    };
+    ENV.manifest = {
+        enabled: true,
+        appcacheFile: "/manifest.appcache",
+        excludePaths: ['index.html', 'someother.html'],
+        includePaths: ['/'],
+        network: ['api/'],
+        showCreateDate: true
+    };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
