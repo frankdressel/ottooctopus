@@ -7,6 +7,13 @@ export default Ember.Component.extend({
             this.get('machine').set('listValues', this.get('listValues'));
             this.set('output', machine.evaluateScript());
         },
+        setFilter(attribute){
+            let val=arguments[1];
+            if(String(arguments[1]).length==0){
+                val=null;
+            }
+            this.get('machine').get('machine').set(attribute+'_filter', val);
+        },
         plus(index, evt){
             let newValues=this.get('listValues');
 

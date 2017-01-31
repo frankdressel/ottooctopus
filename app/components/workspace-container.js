@@ -19,11 +19,13 @@ export default Ember.Component.extend({
             '        },\n'+
             '        set(key, value){eval(key+\'=\'+JSON.stringify(value));},\n'+
             '        get(key){return eval(\'"use strict";\'+key);},\n'+
+            '        getFilters(){return eval(\'"use strict";\'+key);},\n'+
             '        getIndex(key, index){return eval(\'"use strict";\'+key+\'[\'+index+\']\');},\n'+
             '        getAttributes(){return machine.attributes;},\n'+
             '        isListMode(){return machine.isListMode();}\n'+
             '    }\n'+
             '})()';
+            console.log(code);
             let machine=eval(code);
 
             let MachineValues=Ember.Object.extend();

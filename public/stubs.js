@@ -57,11 +57,13 @@ Blockly.JavaScript['sumover'] = function(block) {
 };
 
 Blockly.JavaScript['filteredindex'] = function(block) {
-    var value_of = Blockly.JavaScript.valueToCode(block, 'of', Blockly.JavaScript.ORDER_ATOMIC);
     var value_list = Blockly.JavaScript.valueToCode(block, 'list', Blockly.JavaScript.ORDER_ATOMIC);
 
     var code = `${value_list}.map((val, index)=>{
-        if(val==${value_of}){
+        if(typeof ${value_list}_filter!='undefined'&&${value_list}_filter!=null&&val==${value_list}_filter){
+            return index;
+        }
+        if(typeof ${value_list}_filter=='undefined'||${value_list}_filter==null){
             return index;
         }
         return null;
