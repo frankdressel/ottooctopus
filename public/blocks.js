@@ -51,9 +51,6 @@ Blockly.Blocks['filteredindex'] = {
     init: function() {
         this.appendDummyInput()
             .appendField('index');
-        this.appendValueInput('of')
-            .setCheck(null)
-            .appendField('of');
         this.appendValueInput('list')
             .setCheck('Array')
             .appendField('in list');

@@ -12,6 +12,17 @@
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td style="widtd: 5%"></td>
+            <td style="widtd: 5%"></td>
+            <td style="widtd: 5%"></td>
+            <td style="widtd: 5%"></td>
+            {{#each attributes as |attribute|}}
+                <td>
+                    {{input type="text" class="form-control" enter=(action "setFilter" attribute)}}
+                </td>
+            {{/each}}
+        </tr>
         {{#each listValues as |item index|}}
         <tr>
             <td onclick={{action 'plus' index}}>+</td>
