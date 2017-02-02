@@ -1,0 +1,146 @@
+[?25hCould not start watchman
+[?25hVisit https://ember-cli.com/user-guide/#watchman for more info.
+[?25l[?25h
+adapters/application.js: line 1, col 8, 'DS' is defined but never used.
+
+1 error
+
+components/blockly-container.js: line 5, col 9, 'Blockly' is not defined.
+components/blockly-container.js: line 11, col 40, 'Blockly' is not defined.
+components/blockly-container.js: line 23, col 19, 'Blockly' is not defined.
+components/blockly-container.js: line 24, col 9, 'Blockly' is not defined.
+components/blockly-container.js: line 12, col 22, 'toolboxXML' is not defined.
+
+5 errors
+
+components/list-evaluation.js: line 12, col 45, Expected '===' and instead saw '=='.
+components/list-evaluation.js: line 17, col 21, 'evt' is defined but never used.
+components/list-evaluation.js: line 32, col 22, 'evt' is defined but never used.
+components/list-evaluation.js: line 37, col 19, 'evt' is defined but never used.
+components/list-evaluation.js: line 44, col 21, 'evt' is defined but never used.
+
+5 errors
+
+components/statemachine-evaluation.js: line 16, col 160, Missing semicolon.
+
+1 error
+
+components/workspace-container.js: line 54, col 86, Don't make functions within a loop.
+components/workspace-container.js: line 49, col 25, 'key' is defined but never used.
+components/workspace-container.js: line 73, col 57, 'oldValue' is defined but never used.
+components/workspace-container.js: line 81, col 29, Missing semicolon.
+components/workspace-container.js: line 107, col 32, Expected '===' and instead saw '=='.
+components/workspace-container.js: line 111, col 32, Expected '===' and instead saw '=='.
+components/workspace-container.js: line 115, col 32, Expected '===' and instead saw '=='.
+components/workspace-container.js: line 9, col 20, 'Blockly' is not defined.
+components/workspace-container.js: line 95, col 41, 'Blockly' is not defined.
+components/workspace-container.js: line 95, col 63, 'Blockly' is not defined.
+
+10 errors
+
+controllers/index.js: line 42, col 160, Missing semicolon.
+controllers/index.js: line 6, col 74, 'Blockly' is not defined.
+controllers/index.js: line 6, col 96, 'Blockly' is not defined.
+controllers/index.js: line 12, col 20, 'Blockly' is not defined.
+
+4 errors
+
+controllers/workspaces.js: line 9, col 70, Missing semicolon.
+
+1 error
+
+routes/workspace.js: line 6, col 51, 'params' is not defined.
+routes/workspace.js: line 2, col 10, 'storageFor' is defined but never used.
+
+2 errors
+
+serializers/application.js: line 1, col 8, 'DS' is defined but never used.
+
+1 error
+
+[?25h===== 9 JSHint Errors
+
+[?25h[?25l[?25hcleaning up...
+[?25h[?25hBuilt project successfully. Stored in "/home/vagrant/ottooctopus/tmp/core_object-tests_dist-LywCTKGk.tmp".
+not ok 1 PhantomJS 2.1 - Global error: Error: Could not find module `ottooctopus/resolver` imported from `ottooctopus/tests/helpers/resolver` at http://localhost:7357/assets/vendor.js, line 248
+    ---
+        Log: |
+            { type: 'error',
+              text: 'Error: Could not find module `ottooctopus/resolver` imported from `ottooctopus/tests/helpers/resolver` at http://localhost:7357/assets/vendor.js, line 248\n' }
+    ...
+not ok 2 PhantomJS 2.1 - Global error: Error: Assertion Failed: The tests file was not loaded. Make sure your tests index.html includes "assets/tests.js". at http://localhost:7357/assets/vendor.js, line 16268
+    ---
+        Log: |
+            { type: 'error',
+              text: 'Error: Assertion Failed: The tests file was not loaded. Make sure your tests index.html includes "assets/tests.js". at http://localhost:7357/assets/vendor.js, line 16268\n' }
+    ...
+not ok 3 PhantomJS 2.1 - global failure
+    ---
+        actual: >
+            null
+        stack: >
+            http://localhost:7357/assets/vendor.js:248
+        message: >
+            Error: Could not find module `ottooctopus/resolver` imported from `ottooctopus/tests/helpers/resolver`
+        Log: |
+    ...
+not ok 4 PhantomJS 2.1 - global failure
+    ---
+        actual: >
+            null
+        stack: >
+            http://localhost:7357/assets/vendor.js:16268
+        message: >
+            Error: Assertion Failed: The tests file was not loaded. Make sure your tests index.html includes "assets/tests.js".
+        Log: |
+    ...
+ok 5 PhantomJS 2.1 - JSHint | acceptance/workspaces.js: should pass jshint
+ok 6 PhantomJS 2.1 - JSHint | helpers/module-for-acceptance.js: should pass jshint
+not ok 7 PhantomJS 2.1 - Global error: Error: 
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)`
+Error: you must set a resolver with `testResolver.set(resolver)` at http://localhost:7357/assets/test-support.js, line 7025
+    ---
+        Log: |
+            { type: 'error',
+              text: 'Error: \nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)`\nError: you must set a resolver with `testResolver.set(resolver)` at http://localhost:7357/assets/test-support.js, line 7025\n' }
+    ...
+not ok 8 PhantomJS 2.1 - JSHint | unit/serializers/application-test.js: global failure
+    ---
+        actual: >
+            null
+        stack: >
+            http://localhost:7357/assets/test-support.js:7025
+        message: >
+            Error: 
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+            Error: you must set a resolver with `testResolver.set(resolver)`
+        Log: |
+    ...
+
+1..8
+# tests 8
+# pass  2
+# skip  0
+# fail  6
