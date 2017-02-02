@@ -13,7 +13,7 @@ export default Ember.Component.extend({
             }
             let statemachine=Ember.get(this, 'machine');
             statemachine.transit();
-            let newLine=statemachine.getAttributes().reduce((previous, propertyName) => {previous[propertyName]=statemachine.get(propertyName); return previous}, {});
+            let newLine=statemachine.getAttributes().reduce((previous, propertyName) => {previous[propertyName]=statemachine.get(propertyName); return previous;}, {});
             Ember.set(this, 'statemachineValues', newLine);
             historical.pushObject(newLine);
         }

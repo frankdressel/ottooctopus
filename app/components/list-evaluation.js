@@ -9,12 +9,12 @@ export default Ember.Component.extend({
         },
         setFilter(attribute){
             let val=arguments[1];
-            if(String(arguments[1]).length==0){
+            if(String(arguments[1]).length===0){
                 val=null;
             }
             this.get('machine').get('machine').set(attribute+'_filter', val);
         },
-        plus(index, evt){
+        plus(index){
             let newValues=this.get('listValues');
 
             let MachineValues=Ember.Object.extend();
@@ -29,19 +29,19 @@ export default Ember.Component.extend({
             });
             newValues.insertAt(index, newVal);
         },
-        minus(index, evt){
+        minus(index){
             let newValues=this.get('listValues');
             newValues.removeAt(index);
             this.set('listValues', newValues);
         },
-        up(index, evt){
+        up(index){
             let newValues=this.get('listValues');
             let removedValue=newValues[index];
             newValues.removeAt(index, 1);
             newValues.insertAt(index-1, removedValue);
             this.set('listValues', newValues);
         },
-        down(index, evt){
+        down(index){
             let newValues=this.get('listValues');
             let removedValue=newValues[index];
             newValues.removeAt(index, 1);

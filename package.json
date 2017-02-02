@@ -44,6 +44,7 @@
   },
   "private": true,
   "dependencies": {
-    "broccoli-merge-trees": "^1.2.1"
+    "broccoli-merge-trees": "^1.2.1",
+    "phantomjs": "^2.1.7"
   }
 }

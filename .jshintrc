@@ -2,7 +2,9 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "Blockly",
+    "toolboxXML"
   ],
   "browser": true,
   "boss": true,

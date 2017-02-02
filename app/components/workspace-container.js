@@ -46,10 +46,11 @@ export default Ember.Component.extend({
                     return this.machine.isListMode();
                 }),
                 listValues: Ember.computed(...machine.getAttributes, {
-                    get(key){
+                    get(){
                         let listValues=Ember.A([]);
                         if(machine.getAttributes().length&&machine.getAttributes().length>0&&machine.get(machine.getAttributes()[0]).length){
                             for(var index =0; index < machine.get(machine.getAttributes()[0]).length; index++){
+                                /*jshint loopfunc: true */
                                 let row=MachineValues.create();
                                 listValues.pushObject(machine.getAttributes().reduce((prev, current)=>{
                                     prev.set(current, machine.getIndex(current, index));
@@ -70,7 +71,7 @@ export default Ember.Component.extend({
             });
             machine.getAttributes().forEach(attr=>{
                 let newAttribute={};
-                newAttribute[attr]=function(key, value, oldValue){
+                newAttribute[attr]=function(key, value){
                     // setter
                     if (arguments.length > 1) {
                         this.machine.set(attr, value);
@@ -78,7 +79,7 @@ export default Ember.Component.extend({
 
                     // getter
                     return this.machine.get(attr);
-                }.property()
+                }.property();
             });
             let myMachine=MachineWrapper.create({machine: machine});
 
@@ -104,15 +105,15 @@ export default Ember.Component.extend({
             let possibilities=['definition', 'evaluation', 'both'];
             let newUIIndex=(possibilities.indexOf(this.get('ui'))+1)%possibilities.length;
             this.set('ui', possibilities[newUIIndex]);
-            if(this.get('ui')=='definition'){
+            if(this.get('ui')==='definition'){
                 this.set('showDefinition', true);
                 this.set('showEvaluation', false);
             }
-            if(this.get('ui')=='evaluation'){
+            if(this.get('ui')==='evaluation'){
                 this.set('showDefinition', false);
                 this.set('showEvaluation', true);
             }
-            if(this.get('ui')=='both'){
+            if(this.get('ui')==='both'){
                 this.set('showDefinition', false);
                 this.set('showEvaluation', false);
             }
