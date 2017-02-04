@@ -11,24 +11,33 @@ test('visiting /workspaces', function(assert) {
     });
 });
 
-test('navbar visible', function() {
+test('navbar visible', function(assert) {
     visit('/workspaces');
 
     andThen(function() {
-        findWithAssert('.nav');
+        var elem=find('.nav');
+        assert.ok(elem.length!==0);
     });
 });
 
-test('new workspace name input possible', function() {
+test('new workspace name input possible', function(assert) {
     visit('/workspaces');
 
     andThen(function() {
-        findWithAssert('#newWorkspaceInput');
+        // There should be no element containing the test name.
+        let elem2=find(":contains(workspace-acceptance-test)");
+        assert.ok(elem2.length===0);
+
+        // Find the workspace name input and enter the test name.
+        let elem1 = find('#newWorkspaceInput');
+        assert.ok(elem1.length!==0);
         fillIn('#newWorkspaceInput', 'workspace-acceptance-test');
-        // Wait for asynchronous helpers above to complete
+        keyEvent('#newWorkspaceInput', 'keyup', 13);
+
+        // There should be an element with the test name now.
         andThen(function() {
-            findWithAssert(':contains("workspace-acceptance-test")');
+            let elem2=find(":contains(workspace-acceptance-test)");
+            assert.ok(elem2.length!==0);
         });
-        findWithAssert('#newWorkspaceInput');
     });
 });
